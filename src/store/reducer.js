@@ -4,6 +4,11 @@ const initiaState = {
 
 
 const reducer = (state = initiaState, action) => {
+    if (action.type === 'INCREMENT'){
+        return{
+            counter: state.counter + 1
+        }
+    }
     return state;
 }
 
