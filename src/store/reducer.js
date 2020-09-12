@@ -1,3 +1,6 @@
+
+import * as actionTypes from './action'
+
 const initiaState = {
     counter: 0,
     results: []
@@ -6,36 +9,36 @@ const initiaState = {
 
 const reducer = (state = initiaState, action) => {
     switch(action.type){
-        case 'INCREMENT':{
+        case actionTypes.INCREMENT:{
             const newState = Object.assign({}, state); // this is the same as ...state
             newState.counter =  state.counter + 1
             return newState;
         }
-        case 'DECREMENT':{
+        case actionTypes.DECREMENT:{
             return{
                 ...state,
                 counter: state.counter - 1
             }
         }
-        case 'ADD':{
+        case actionTypes.ADD:{
             return{
                 ...state,
                 counter: state.counter + action.val
             }
         }
-        case 'SUBTRACT':{
+        case actionTypes.SUBTRACT:{
             return{
                 ...state,
                 counter: state.counter - action.val
             }
         }
-        case 'STORE_RESULT': {
+        case actionTypes.STORE_RESULT: {
             return{
                 ...state,
                 results: state.results.concat({id: new Date(), value: state.counter})                
             }
         }
-        case 'DELETE_RESULT': {
+        case actionTypes.DELETE_RESULT: {
             // ONE of the way to delet element by id in arrey
             // const id = 2;
             // const newArray = [...state.results]; //copy of results arrey
