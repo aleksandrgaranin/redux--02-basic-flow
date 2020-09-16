@@ -26,8 +26,10 @@ const reducer = (state = initiaState, action) => {
                 results: updatedArrey
             }
         }
+        default:
+            return state
     }
-    return state;
+    
 }
 
 export default reducer;
