@@ -6,6 +6,11 @@ const initiaState = {
     results: []
 }
 
+const deleteResult = (state, action) => {
+    const updatedArrey = state.results.filter(result => result.id !== action.resultElId); 
+    return updateObject(state, {results: updatedArrey})
+}
+
 
 const reducer = (state = initiaState, action) => {
     switch(action.type){
@@ -21,14 +26,15 @@ const reducer = (state = initiaState, action) => {
             // const id = 2;
             // const newArray = [...state.results]; //copy of results arrey
             // newArray.splice(id, 1)
-            const updatedArrey = state.results.filter(result => result.id !== action.resultElId); // state.results.filter((result, index) => index !== id); logic bahind
+            // const updatedArrey = state.results.filter(result => result.id !== action.resultElId); // state.results.filter((result, index) => index !== id); logic bahind
             // return{
             //     ...state,
             //     // results: newArray
             //     results: updatedArrey
             // }
 
-            return updateObject(state, {results: updatedArrey})
+            // return updateObject(state, {results: updatedArrey})
+            return deleteResult(state, action)
         }
         default:
             return state
